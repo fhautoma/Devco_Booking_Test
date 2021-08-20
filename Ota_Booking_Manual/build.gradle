@@ -1,19 +1,43 @@
-plugins {
-    id 'java'
-}
+defaultTasks 'clean', 'test', 'aggregate'
 
-group 'org.example'
+apply plugin: 'java'
+apply plugin: 'java-library'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+group 'co.com.devco.www'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 repositories {
-    mavenCentral()
+    jcenter()
+    mavenLocal()
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+buildscript{
+    repositories{
+        mavenLocal()
+        jcenter()
+    }
+    ext {
+        serenityVersion = '2.0.91'
+        serenityCucumberVersion = '1.9.51'
+    }
+    dependencies{
+        classpath("net.serenity-bdd:serenity-gradle-plugin:$rootProject.ext.serenityVersion")
+    }
 }
 
-test {
-    useJUnitPlatform()
+serenity {
+    reports = ["single-page-html"]
 }
+
+dependencies{
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation(group: 'co.com.devco.certification', name: 'manualtestSerenityBDD', version: '1.0.0')
+    implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: serenityCucumberVersion
+}
+
+gradle.startParameter.continueOnFailure = true
