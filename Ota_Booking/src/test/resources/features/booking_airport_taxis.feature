@@ -7,8 +7,8 @@
     Scenario: Validate correct prices at one way airport taxi flow
       Given I am on the airport taxi booking page
         And I search a taxi with the search data
-          |pickupLocation                 |dropOffLocation |pickupDate |pickupTime |passengers |
-          |El Dorado International Airport|Parque de la 93 |31/08/2021 |13:00      |1          |
+          |pickupLocation                 |dropOffLocation |
+          |Aeropuerto internacional de El Dorado|Parque de la 93 |
         And I fill the passenger details form with the values
           |title                 |firstName |lastName |emailAddress |mobileNumber            |
           |Mr                    |Felipe    |Henao    |a@gmail.com  |+57 313 6555421         |

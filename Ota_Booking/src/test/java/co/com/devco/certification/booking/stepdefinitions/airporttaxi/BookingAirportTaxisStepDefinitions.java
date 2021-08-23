@@ -1,5 +1,7 @@
 package co.com.devco.certification.booking.stepdefinitions.airporttaxi;
 
+import co.com.devco.certification.booking.models.airporttaxi.SearchAirportTaxi;
+import co.com.devco.certification.booking.tasks.airporttaxi.SearchTaxi;
 import co.com.devco.certification.booking.userinterfaces.airporttaxi.SearchPageAirportTaxi;
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
@@ -8,6 +10,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+
+import java.util.List;
 
 import static co.com.devco.certification.booking.utils.ConstantManager.AUTOMATION_USER;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
@@ -22,12 +26,13 @@ public class BookingAirportTaxisStepDefinitions {
 
     @Given("^I am on the airport taxi booking page$")
     public void iAmOnTheAirportTaxiBookingPage() {
-        theActorInTheSpotlight().wasAbleTo(Open.browserOn(new SearchPageAirportTaxi()));
+        theActorInTheSpotlight().attemptsTo(Open.browserOn(new SearchPageAirportTaxi()));
 
     }
 
     @Given("^I search a taxi with the search data$")
-    public void iSearchATaxiWithTheSearchData(DataTable arg1) {
+    public void iSearchATaxiWithTheSearchData(List<SearchAirportTaxi> data) {
+        theActorInTheSpotlight().attemptsTo(SearchTaxi.searchTaxi(data));
 
     }
 

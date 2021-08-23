@@ -19,6 +19,9 @@ public class SearchPageAirportTaxi extends PageObject {
     public static final Target DROP_OFF_LOCATION = Target.the("Drop off location text field")
             .locatedBy("//input[@id='dropoffLocation']");
 
+    public static final Target FIRST_AUTO_COMPLETE_ITEM = Target.the("First item in autocomplete result")
+            .locatedBy("//h4[@data-test='rw-autocomplete-item__title-0']");
+
     public static final Target PICKUP_DATE = Target.the("Pickup date input field")
             .locatedBy("//button[@aria-label='pickup date input field']");
 
@@ -38,6 +41,6 @@ public class SearchPageAirportTaxi extends PageObject {
             .locatedBy("//select[@id='passengers']");
 
     public static final Target SEARCH_BUTTON = Target.the("Form search button")
-            .locatedBy("//button[@name='searchButton]");
+            .locatedBy("//button[@name='searchButton']");
 
 }
