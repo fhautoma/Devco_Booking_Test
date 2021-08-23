@@ -1,10 +1,14 @@
 package co.com.devco.certification.booking.stepdefinitions.airporttaxi;
 
+import co.com.devco.certification.booking.models.airporttaxi.BookPaymentAirportTaxi;
+import co.com.devco.certification.booking.models.airporttaxi.DetailAirportTaxi;
 import co.com.devco.certification.booking.models.airporttaxi.SearchAirportTaxi;
+import co.com.devco.certification.booking.tasks.airporttaxi.FillFormDetailTaxi;
+import co.com.devco.certification.booking.tasks.airporttaxi.FillFormPaymentTaxi;
 import co.com.devco.certification.booking.tasks.airporttaxi.SearchTaxi;
 import co.com.devco.certification.booking.userinterfaces.airporttaxi.SearchPageAirportTaxi;
-import cucumber.api.DataTable;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -30,34 +34,27 @@ public class BookingAirportTaxisStepDefinitions {
 
     }
 
-    @Given("^I search a taxi with the search data$")
+    @And("^I search a taxi with the search data$")
     public void iSearchATaxiWithTheSearchData(List<SearchAirportTaxi> data) {
         theActorInTheSpotlight().attemptsTo(SearchTaxi.searchTaxi(data));
 
     }
 
-    @Given("^I fill the passenger details form with the values$")
-    public void iFillThePassengerDetailsFormWithTheValues(DataTable arg1) {
+    @And("^I fill the passenger details form with the values$")
+    public void iFillThePassengerDetailsFormWithTheValues(List<DetailAirportTaxi> data) {
+        theActorInTheSpotlight().attemptsTo(FillFormDetailTaxi.manageDetailTaxi(data));
 
     }
 
-    @When("^I get the total price in the passenger details page$")
-    public void iGetTheTotalPriceInThePassengerDetailsPage() {
+    @When("^I fill the payment data with the values$")
+    public void iFillThePaymentDataWithTheValues(List<BookPaymentAirportTaxi> data) {
+        theActorInTheSpotlight().attemptsTo(FillFormPaymentTaxi.managePaymentTaxi(data));
+
 
     }
 
-    @When("^I clicking the continue to book button$")
-    public void iClickingTheContinueToBookButton() {
-
-    }
-
-    @When("^I get the total price in the payment page$")
-    public void iGetTheTotalPriceInThePaymentPage() {
-
-    }
-
-    @Then("^I should see the total price is equal to the passenger details page total price$")
-    public void iShouldSeeTheTotalPriceIsEqualToThePassengerDetailsPageTotalPrice() {
+    @Then("^I should see the error payment message$")
+    public void iShouldSeeTheErrorPaymentMessage() {
 
     }
 }
