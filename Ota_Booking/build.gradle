@@ -2,6 +2,7 @@ defaultTasks 'clean', 'test', 'aggregate'
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'eclipse'
 apply plugin: 'net.serenity-bdd.aggregator'
 
 group 'co.com.devco.www'
@@ -49,4 +50,3 @@ test {
     testLogging.showStandardStreams = true
     finalizedBy(aggregate)
 }
-gradle.startParameter.continueOnFailure = true
