@@ -15,11 +15,6 @@ Test Automation Devco Challenge - OTA Booking
 - Importar el proyecto desde Eclipse o IntelliJ IDE bajo la estructura de un proyecto Gradle existente
 - Configurar JRE System Library con JavaSE-1.8
 
-## Compilar El Proyecto y Generar Wrapper
-- Para compilar el proyecto se debe ejecutar el comando:  
-  ```gradle clean build -x test```
-- Para generar los archivos wrapper del proyecto se debe ejecutar el comando:  
-
 ## Navegadores Web
 La automatización actualmente se ejecuta en los siguientes navegadores
 - Google Chrome v92.0
@@ -28,9 +23,7 @@ La automatización actualmente se ejecuta en los siguientes navegadores
 
 ### Localmente :computer:
 - Para correr el proyecto se necesita Java JDK 1.8 y Gradle con la versión 7.0.2 o superior
-- Ejecutar el comando ```gradle clean users -DaadAccount=... -DaadPassword=... --tests *runner* aggregate```
-
-    
+ 
 ## Detalles Generales De La Implementación :file_folder:
 Cada línea de los escenarios de pruebas creados en los features con el uso del lenguaje Gherkin, se conectan con un método en las clases StepDefinitions con la ayuda de anotaciones @Given, @When y @Then.  
 Desde los StepDefinitions se conectan con las clases tipo Task donde se realizan las acciones de alto nivel.
