@@ -9,7 +9,7 @@ Característica: Realizar flujo en modulo de Alojamientos
     Dado que el usuario ingresa a la pantalla de alojamiento
     Cuando realiza búsqueda con destino Paris con fecha de Check-In en 10 días y fecha Check-Out en 15 días
     Entonces el sistema debe mostrar resultados de los hoteles con habitaciones disponibles
-    
+
   Escenario: Validación filtros de politicas de cancelación
     Dado realiza búsqueda con destino Paris con fecha de Check-In en 10 días y fecha Check-Out en 15 días
     Cuando selecciona el filtro "Cancelación Gratis" en la sección "Condiciones de la reserva"

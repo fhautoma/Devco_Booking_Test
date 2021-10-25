@@ -12,6 +12,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
@@ -24,6 +25,7 @@ public class BookingAirportTaxisStepDefinitions {
 
     @Before
     public void setUp(){
+        WebDriverManager.chromedriver().setup();
         setTheStage(new OnlineCast());
         theActorCalled(AUTOMATION_USER);
     }

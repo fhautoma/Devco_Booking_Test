@@ -36,7 +36,7 @@ serenity {
 
 dependencies{
     testImplementation group: 'junit', name: 'junit', version: '4.12'
-    implementation(group: 'co.com.devco.certification', name: 'manualtestSerenityBDD', version: '1.0.0')
+    //implementation(group: 'co.com.devco.certification', name: 'manualtestSerenityBDD', version: '1.0.0')
     implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: serenityCucumberVersion
 }
 
